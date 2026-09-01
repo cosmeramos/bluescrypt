@@ -81,7 +81,7 @@ async function mainMenu() {
       choices: [
         { name: '1. 🔍 Navegar/Ver senhas', value: 'view' },
         { name: '2. ➕ Adicionar nova senha', value: 'add' },
-        { name: '3. ⚡ Gerar Senha Segura (Automático)', value: 'generate' },
+        { name: '3. ⚡ Gerar Senha Segura (automático)', value: 'generate' },
         { name: '4. 🗑️ Apagar uma senha', value: 'delete' },
         { name: '5. 🚪 Trancar cofre e sair', value: 'exit' }
       ],
@@ -171,7 +171,6 @@ async function mainMenu() {
   }
 }
 
-// Inicia o programa
 mainMenu().catch(err => {
   console.error(err);
   process.exit(1);
