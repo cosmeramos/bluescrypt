@@ -45,13 +45,13 @@ async function openVaultInteractive() {
       process.exit(1);
     }
     const salt = generateSalt();
-    const key = deriveKey(masterPass, salt);
+    const key = await deriveKey(masterPass, salt);
     return { key, data: {}, salt, isNew: true };
   }
 
   const masterPass = await passwordPrompt({ message: '🔑 Digite sua Senha Mestre:', mask: '*' });
   try {
-    const key = deriveKey(masterPass, existingVault.salt);
+    const key = await deriveKey(masterPass, existingVault.salt);
     const decryptedData = decrypt(existingVault.payload, key);
     return { key, data: JSON.parse(decryptedData), salt: existingVault.salt, isNew: false };
   } catch (error) {

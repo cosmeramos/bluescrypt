@@ -10,6 +10,8 @@
     "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
+    "rootDir": "./src",
+    "outDir": "./dist",
     "types": ["node"],
     // For nodejs:
     // "lib": ["esnext"],

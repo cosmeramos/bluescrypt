@@ -6,6 +6,7 @@ node_modules/
 # Arquivos de Build / Compilados
 build/
 dist/
+*.js.map
 
 # Cofre local de testes (não subir para o GitHub!)
 vault.json
