@@ -26,15 +26,15 @@
 
 O **BlueScrypt** adota um modelo de **Zero-Knowledge Local**: nenhum dado, metadado ou chave mestre deixa o ambiente de execução do usuário.
 
-* **Derivação de Chave (KDF):** Utiliza o algoritmo nativo `PBKDF2` (*Password-Based Key Derivation Function 2*) combinado com `SHA-256`, aplicando um alto número de iterações e *salts* criptograficamente aleatórios (`crypto.randomBytes`) gerados por sessão/cofre.
-* **Cifra Simétrica:** Criptografia de dados via **AES-256-CBC** (*Advanced Encryption Standard* com vetor de inicialização - IV aleatório por operação de escrita).
-* **Gerador de Senhas Criptográfico (PRNG):** A funcionalidade de geração de senhas consome a entropia do barramento do sistema operacional (`crypto.randomInt`), evitando a previsibilidade de geradores pseudo-aleatórios convencionais (`Math.random`).
-* **Gerenciamento Seguro de Memória Volátil:**
+* **Derivação de chave (KDF):** Utiliza o algoritmo nativo `PBKDF2` (*Password-Based Key Derivation Function 2*) combinado com `SHA-256`, aplicando um alto número de iterações e *salts* criptograficamente aleatórios (`crypto.randomBytes`) gerados por sessão/cofre.
+* **Cifra simétrica:** Criptografia de dados via **AES-256-CBC** (*Advanced Encryption Standard* com vetor de inicialização - IV aleatório por operação de escrita).
+* **Gerador de senhas criptográfico (PRNG):** A funcionalidade de geração de senhas consome a entropia do barramento do sistema operacional (`crypto.randomInt`), evitando a previsibilidade de geradores pseudo-aleatórios convencionais (`Math.random`).
+* **Gerenciamento seguro de memória volátil:**
 * Tratamento do sinal `SIGINT` (Ctrl+C) para interceptar o encerramento abrupto do processo.
 * Sobrescrita explícita de *buffers* em memória (`Buffer.alloc(0)`) e limpeza de referências de objetos ao trancar o cofre ou fechar a aplicação.
 
 
-* **Sanitização de Clipboard:** Integração com limpeza temporal automática (10 segundos) da área de transferência para conter *clipboard hijacking* e mitigar a exposição de segredos em logs de sistema.
+* **Sanitização de clipboard:** Integração com limpeza temporal automática (10 segundos) da área de transferência para conter *clipboard hijacking* e mitigar a exposição de segredos em logs de sistema.
 
 ---
 
@@ -54,8 +54,8 @@ Baixe a versão pré-compilada para a sua plataforma sem precisar instalar depen
 | Plataforma | Arquivo | Download |
 | --- | --- | --- |
 | 🪟 **Windows** | `bluescrypt-win.exe` | [Baixar .exe](https://github.com/cosmeramos/bluescrypt/releases/latest/download/bluescrypt-win.exe) |
-| 🐧 **Linux** | `bluescrypt-linux` | [Baixar Binário](https://github.com/cosmeramos/bluescrypt/releases/latest/download/bluescrypt-linux) |
-| 🍎 **macOS** | `bluescrypt-macos` | [Baixar Binário](https://github.com/cosmeramos/bluescrypt/releases/latest/download/bluescrypt-macos) |
+| 🐧 **Linux** | `bluescrypt-linux` | [Baixar binário](https://github.com/cosmeramos/bluescrypt/releases/latest/download/bluescrypt-linux) |
+| 🍎 **macOS** | `bluescrypt-macos` | [Baixar binário](https://github.com/cosmeramos/bluescrypt/releases/latest/download/bluescrypt-macos) |
 
 > 💡 **Dica rápida:** Acesse a lista completa de versões e o histórico de mudanças diretamente na aba de **[Releases do GitHub](https://github.com/cosmeramos/bluescrypt/releases/latest)**.
 
