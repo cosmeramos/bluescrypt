@@ -1,12 +1,20 @@
-# Dependências
+# Dependências e caches
 node_modules/
+.bun-cache/
+.bun/
 
-# Bundles e binários gerados
-dist/
+# Arquivos de Build / Compilados
 build/
-*.exe
+dist/
 
-# Logs e arquivos de sistema
+# Cofre local de testes (não subir para o GitHub!)
+vault.json
+*.vault
+
+# Logs e arquivos de ambiente
 *.log
-.DS_Store
 .env
+
+vault.bluescrypt
+*.bluescrypt
+*.json
