@@ -1,5 +1,6 @@
 <div align="center">
-  <pre>
+
+```text
     ____  __           _____                      __ 
    / __ )/ /_  _____  / ___/______________  __  / /_
   / __  / / / / / _ \ \__ \/ ___/ ___/ __ \/ / / / __/
@@ -7,90 +8,111 @@
 /_____/_/\__,_/\___/ /____/\___/_/   \__, /\__,_/\__/ 
                                     /____/            
                  by Akira Rech v1.0.0
-  </pre>
-  <h3>Cofre local seguro. Zero nuvem. Criptografia avançada.</h3>
-</div>
+
+```
+
+### Cofre local seguro. Zero nuvem. Criptografia avançada.
 
 ---
 
-BlueScrypt CLI
-BlueScrypt é uma ferramenta de linha de comando (CLI) interativa, minimalista e autônoma, desenvolvida para o gerenciamento seguro de credenciais e utilitários criptográficos locais. O objetivo principal do projeto é fornecer uma alternativa enxuta, auditável e zero-dependency-cloud para profissionais de tecnologia e entusiastas de segurança que demandam controle total sobre a custódia de suas chaves.
+# 🛡️ BlueScrypt CLI
 
-🔒 Arquitetura de criptografia & segurança
-O BlueScrypt adota um modelo de Zero-Knowledge Local: nenhum dado, metadado ou chave mestre deixa o ambiente de execução do usuário.
+**BlueScrypt** é uma ferramenta de linha de comando (CLI) interativa, minimalista e autônoma, desenvolvida para o gerenciamento seguro de credenciais e utilitários criptográficos locais. O objetivo principal do projeto é fornecer uma alternativa enxuta, auditável e *zero-dependency-cloud* para profissionais de tecnologia e entusiastas de segurança que demandam controle total sobre a custódia de suas chaves.
 
-Derivação de chave (KDF): Utiliza o algoritmo nativo PBKDF2 (Password-Based Key Derivation Function 2) combinado com SHA-256, aplicando um alto número de iterações e salts criptograficamente aleatórios (crypto.randomBytes) gerados por sessão/cofre.
+---
+</div>
 
-Cifra simétrica: Criptografia de dados via AES-256-CBC (Advanced Encryption Standard com vetor de inicialização - IV aleatório por operação de escrita).
+## 🔒 Arquitetura de criptografia
 
-Gerador de senhas criptográfico (PRNG): A funcionalidade de geração de senhas consome a entropia do barramento do sistema operacional (crypto.randomInt), evitando a previsibilidade de geradores pseudo-aleatórios convencionais (Math.random).
+O **BlueScrypt** adota um modelo de **Zero-Knowledge Local**: nenhum dado, metadado ou chave mestre deixa o ambiente de execução do usuário.
 
-Gerenciamento Seguro de Memória Volátil:
+* **Derivação de Chave (KDF):** Utiliza o algoritmo nativo `PBKDF2` (*Password-Based Key Derivation Function 2*) combinado com `SHA-256`, aplicando um alto número de iterações e *salts* criptograficamente aleatórios (`crypto.randomBytes`) gerados por sessão/cofre.
+* **Cifra Simétrica:** Criptografia de dados via **AES-256-CBC** (*Advanced Encryption Standard* com vetor de inicialização - IV aleatório por operação de escrita).
+* **Gerador de Senhas Criptográfico (PRNG):** A funcionalidade de geração de senhas consome a entropia do barramento do sistema operacional (`crypto.randomInt`), evitando a previsibilidade de geradores pseudo-aleatórios convencionais (`Math.random`).
+* **Gerenciamento Seguro de Memória Volátil:**
+* Tratamento do sinal `SIGINT` (Ctrl+C) para interceptar o encerramento abrupto do processo.
+* Sobrescrita explícita de *buffers* em memória (`Buffer.alloc(0)`) e limpeza de referências de objetos ao trancar o cofre ou fechar a aplicação.
 
-Tratamento do sinal SIGINT (Ctrl+C) para interceptar o encerramento abrupto do processo.
 
-Sobrescrita explícita de buffers em memória (Buffer.alloc(0)) e limpeza de referências de objetos ao trancar o cofre ou fechar a aplicação.
+* **Sanitização de Clipboard:** Integração com limpeza temporal automática (10 segundos) da área de transferência para conter *clipboard hijacking* e mitigar a exposição de segredos em logs de sistema.
 
-Sanitização de Clipboard: Integração com limpeza temporal automática (10 segundos) da área de transferência para conter clipboard hijacking e mitigar a exposição de segredos em logs de sistema.
+---
 
-📦 Tecnologias Utilizadas
-Runtime & Compiler: Bun (compilação standalone AOT para binários nativos de plataforma).
+## 📦 Tecnologias usadas
 
-Linguagem: TypeScript (ESM - ECMAScript Modules).
+* **Runtime & Compiler:** [Bun](https://bun.sh/) (compilação *standalone* AOT para binários nativos de plataforma).
+* **Linguagem:** TypeScript (ESM - ECMAScript Modules).
+* **Interface CLI:** `@inquirer/prompts` (prompts interativos e mascaramento de senha no buffer do terminal).
+* **Integração com SO:** `clipboardy` para manipulação de *clipboard*.
 
-Interface CLI: @inquirer/prompts (prompts interativos e mascaramento de senha no buffer do terminal).
+---
 
-Integração com SO: clipboardy para manipulação de clipboard.
+## 🚀 Downloads
 
-🚀 Como Executar
-Vai pelo binário compilado
-Não é necessário ter Node.js ou Bun instalados. Baixe o executável pré-compilado para a sua plataforma na aba de Releases.
+Baixe a versão pré-compilada para a sua plataforma sem precisar instalar dependências:
 
-Windows
-PowerShell
-.\bluescrypt-win.exe
-Linux / macOS
-Bash
-chmod +x bluescrypt-linux
-./bluescrypt-linux
-Ou vai pela execução via Código-Fonte
-Pré-requisitos
-Bun v1.0+ instalado.
+| Plataforma | Arquivo | Download |
+| --- | --- | --- |
+| 🪟 **Windows** | `bluescrypt-win.exe` | [Baixar .exe](https://github.com/cosmeramos/bluescrypt/releases/latest/download/bluescrypt-win.exe) |
+| 🐧 **Linux** | `bluescrypt-linux` | [Baixar Binário](https://github.com/cosmeramos/bluescrypt/releases/latest/download/bluescrypt-linux) |
+| 🍎 **macOS** | `bluescrypt-macos` | [Baixar Binário](https://github.com/cosmeramos/bluescrypt/releases/latest/download/bluescrypt-macos) |
 
-Passos
-Bash
-# Clone o repositório
-git clone https://github.com/cosmeramos/bluescrypt.git
+> 💡 **Dica rápida:** Acesse a lista completa de versões e o histórico de mudanças diretamente na aba de **[Releases do GitHub](https://github.com/cosmeramos/bluescrypt/releases/latest)**.
+
+---
+
+## 💻 Como executar
+
+### I. Binário compilado (Direto)
+
+Não é necessário ter Node.js ou Bun instalados. Baixe o executável na tabela de Downloads e rode no terminal:
+
+| Plataforma | Comando de Execução |
+| --- | --- |
+| **Windows** | `.\bluescrypt-win.exe` |
+| **Linux** | `chmod +x bluescrypt-linux && ./bluescrypt-linux` |
+| **macOS** | `chmod +x bluescrypt-macos && ./bluescrypt-macos` |
+
+### II. A partir do Código-Fonte (Desenvolvimento)
+
+**Pré-requisito:** Bun v1.0+ instalado.
+
+```bash
+# I. Clonar o repositório
+git clone [https://github.com/cosmeramos/bluescrypt.git](https://github.com/cosmeramos/bluescrypt.git)
 cd bluescrypt
 
-# Instale as dependências
+# II. Instalar dependências
 bun install
 
-# Execute em modo de desenvolvimento
+# III. Executar o projeto
 bun src/index.ts
-🛠️ Scripts de Build
-Para compilar manualmente os binários autônomos utilizando o empacotador nativo do Bun:
 
-Bash
-# Build para a plataforma atual (ex: Windows)
-bun run build
+```
 
-# Build multiplataforma
-bun run build:all
-Os executáveis gerados serão salvos no diretório build/.
+---
 
-🗺️ Roadmap & próximas possiveis melhorias
-Buscamos aprimorar continuamente o BlueScrypt para atender a padrões de auditoria e hardening. As seguintes frentes estão em desenvolvimento ou sob análise de viabilidade:
+## ⚠️ Resolução de problemas frequentes
 
-[ ] Migração de cifra (AES-GCM): Transição do modo CBC para AES-256-GCM (Galois/Counter Mode) para prover Authenticated Encryption (AEAD), garantindo integridade e autenticidade juntamente à confidencialidade.
+* **Windows Defender bloqueando a execução:** Por ser um executável não assinado digitalmente, o SmartScreen pode exibir um aviso no primeiro uso. Clique em *"Mais informações"* e selecione *"Executar assim mesmo"*.
+* **Permissão negada no Linux/macOS (`permission denied`):** Lembre-se de rodar `chmod +x <nome-do-arquivo>` antes da primeira execução para atribuir permissões de binário executável.
 
-[ ] Derivação via argon2id: Substituição/Suporte opcional ao Argon2id como KDF padrão, aumentando a resistência contra ataques baseados em hardware especializado (GPUs/ASICs).
+---
 
-[ ] Cofre centralizado global (~/.bluescrypt): Suporte a um diretório de configuração padrão no perfil do usuário, permitindo acessar o cofre de qualquer ponto do terminal sem depender do diretório atual de trabalho.
+## 🗺️ Roadmap & próximas melhorias
 
-[ ] Lockdown de memória (mlock): Exploração de chamadas nativas de sistema para evitar que a memória contendo as chaves seja gravada em discos de swap (paginação).
+Buscamos aprimorar continuamente o **BlueScrypt** para atender a padrões de auditoria e *hardening*. As seguintes frentes estão sob análise de viabilidade:
 
-[ ] Exportação/importação encriptada: Mecanismos de backup com redundância e chave de recuperação.
+* [ ] **Migração de Cifra (AES-GCM):** Transição do modo CBC para **AES-256-GCM** (*Galois/Counter Mode*) para prover *Authenticated Encryption* (AEAD), garantindo integridade e autenticidade juntamente à confidencialidade.
+* [ ] **Derivação via Argon2id:** Substituição/Suporte opcional ao `Argon2id` como KDF padrão, aumentando a resistência contra ataques baseados em hardware especializado (GPUs/ASICs).
+* [ ] **Cofre Centralizado Global (`~/.bluescrypt`):** Suporte a um diretório de configuração padrão no perfil do usuário, permitindo acessar o cofre de qualquer ponto do terminal sem depender do diretório atual de trabalho.
+* [ ] **Lockdown de Memória (`mlock`):** Exploração de chamadas nativas de sistema para evitar que a memória contendo as chaves seja gravada em discos de *swap* (paginação).
+* [ ] **Exportação/Importação Encriptada:** Mecanismos de *backup* com redundância e chave de recuperação.
 
-📄 Licença
-Este projeto está distribuído sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+---
+
+## 📄 Licença
+
+Este projeto está distribuído sob a licença **MIT**. Veja o arquivo `LICENSE` para mais detalhes.
+
+---
