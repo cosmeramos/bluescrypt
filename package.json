@@ -8,7 +8,7 @@
     "start": "node --loader ts-node/esm src/index.ts",
     "dev": "tsx src/index.ts",
     "build": "bun build src/index.ts --compile --outfile build/bluescrypt-win.exe",
-    "build:all": "bun build src/index.ts --compile --outfile build/bluescrypt-win.exe && bun build src/index.ts --compile --outfile build/bluescrypt-linux && bun build src/index.ts --compile --outfile build/bluescrypt-macos"
+    "build:all": "bun build src/index.ts --compile --target=bun-windows-x64 --outfile build/bluescrypt-win.exe && bun build src/index.ts --compile --target=bun-linux-x64 --outfile build/bluescrypt-linux && bun build src/index.ts --compile --target=bun-darwin-x64 --outfile build/bluescrypt-macos"
   },
   "keywords": [
     "cli",
