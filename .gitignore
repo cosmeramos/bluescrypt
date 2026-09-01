@@ -1,0 +1,12 @@
+# Dependências
+node_modules/
+
+# Bundles e binários gerados
+dist/
+build/
+*.exe
+
+# Logs e arquivos de sistema
+*.log
+.DS_Store
+.env

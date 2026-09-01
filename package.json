@@ -1,0 +1,35 @@
+{
+  "name": "bluescrypt",
+  "version": "1.0.0",
+  "description": "Ferramenta CLI interativa para utilitários de segurança e criptografia",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "node --loader ts-node/esm src/index.ts",
+    "dev": "tsx src/index.ts",
+    "build": "bun build src/index.ts --compile --outfile build/bluescrypt-win.exe",
+    "build:all": "bun build src/index.ts --compile --outfile build/bluescrypt-win.exe && bun build src/index.ts --compile --outfile build/bluescrypt-linux && bun build src/index.ts --compile --outfile build/bluescrypt-macos"
+  },
+  "keywords": [
+    "cli",
+    "cybersecurity",
+    "typescript",
+    "bun"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/clipboardy": "^1.1.0",
+    "@types/node": "^26.4.0",
+    "esbuild": "^0.28.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^8.7.0",
+    "@inquirer/select": "^5.2.3",
+    "clipboardy": "^5.3.2",
+    "commander": "^15.0.0"
+  }
+}
