@@ -103,9 +103,9 @@ bun src/index.ts
 
 Buscamos aprimorar continuamente o **BlueScrypt** para atender a padrões de auditoria e *hardening*. As seguintes frentes estão sob análise de viabilidade:
 
-* [ ] **Migração de Cifra (AES-GCM):** Transição do modo CBC para **AES-256-GCM** (*Galois/Counter Mode*) para prover *Authenticated Encryption* (AEAD), garantindo integridade e autenticidade juntamente à confidencialidade.
-* [ ] **Derivação via Argon2id:** Substituição/Suporte opcional ao `Argon2id` como KDF padrão, aumentando a resistência contra ataques baseados em hardware especializado (GPUs/ASICs).
-* [ ] **Cofre Centralizado Global (`~/.bluescrypt`):** Suporte a um diretório de configuração padrão no perfil do usuário, permitindo acessar o cofre de qualquer ponto do terminal sem depender do diretório atual de trabalho.
+* [X] **Migração de Cifra (AES-GCM):** Transição do modo CBC para **AES-256-GCM** (*Galois/Counter Mode*) para prover *Authenticated Encryption* (AEAD), garantindo integridade e autenticidade juntamente à confidencialidade.
+* [X] **Derivação via Argon2id:** Substituição/Suporte opcional ao `Argon2id` como KDF padrão, aumentando a resistência contra ataques baseados em hardware especializado (GPUs/ASICs).
+* [X] **Cofre Centralizado Global (`~/.bluescrypt`):** Suporte a um diretório de configuração padrão no perfil do usuário, permitindo acessar o cofre de qualquer ponto do terminal sem depender do diretório atual de trabalho.
 * [ ] **Lockdown de Memória (`mlock`):** Exploração de chamadas nativas de sistema para evitar que a memória contendo as chaves seja gravada em discos de *swap* (paginação).
 * [ ] **Exportação/Importação Encriptada:** Mecanismos de *backup* com redundância e chave de recuperação.
 
